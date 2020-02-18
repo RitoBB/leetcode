@@ -28,6 +28,7 @@ class Solution:
             res.append(root.val)
             self.inOrder(root.right, res)
         return res
+
 ## 方法二：递归
     def isValidBST(self, root: TreeNode) -> bool:
         def isBST(root, min_val, max_val):

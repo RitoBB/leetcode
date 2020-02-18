@@ -12,7 +12,7 @@ class Solution:
         for i in tokens:
             if i in symbol:
                 a, b = stack.pop(), stack.pop()
-                stack.append(str(int(eval(b+i+a))))
+                stack.append(str(int(eval(b+i+a)))) ##注意这里要转为int做完运算操作，再转为str.
             else:
                 stack.append(i)
         return stack.pop()

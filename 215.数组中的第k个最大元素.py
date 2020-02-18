@@ -8,7 +8,7 @@
 import heapq
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        ## 方法一： 快速排序
+        ## 方法一： 快速排序 (有点慢)
         def quickSort(left,right):
             key = nums[left]
             l = left + 1
@@ -32,10 +32,8 @@ class Solution:
             elif idx > k-1 :
                 right = idx - 1
 
-
-
-
         ## 方法三： 手动堆
+    def findKthLargest(self, nums: List[int], k: int) -> int:
         def adjust_heap(idx, max_len):
             left = 2 * idx + 1
             right = 2 * idx + 2
@@ -59,6 +57,7 @@ class Solution:
             adjust_heap(0, n - i)
         return res
 
+    def findKthLargest(self, nums: List[int], k: int) -> int:
         ##方法二： 用内置函数heapq
         return heapq.nlargest(k,nums)[-1]
         

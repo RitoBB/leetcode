@@ -9,6 +9,7 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         if not nums:
             return -1
+        ## 二分搜索
         left = 0
         right = len(nums) - 1
         while left <= right:

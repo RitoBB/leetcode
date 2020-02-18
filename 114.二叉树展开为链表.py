@@ -30,9 +30,9 @@ class Solution:
         preorder(root)
         i =1
         root.left = None
-        p = root
+        p = root ## 设置p来重新构造链表。
         while i < len(d):
-            p.right = TreeNode(d[i])
+            p.right = TreeNode(d[i]) ##注意这里TreeNode
             p = p.right
             i += 1
         return p
