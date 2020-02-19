@@ -14,9 +14,6 @@ class Solution:
             end = max(end, start)
             start -= 1
         return end <= 0
-    
-
-
 
     def canJump(self, nums: List[int]) -> bool:
         ## 方法一： 从前往后跳
