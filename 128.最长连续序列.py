@@ -6,6 +6,19 @@
 
 # @lc code=start
 class Solution:
+    ## 方法一： 并查集合
+    def longestConsecutive(self, nums: List[int]) -> int:
+        nums = set(nums)
+        res = 0
+        for x in nums:
+            ## 找出开头
+            if x-1 not in nums:
+                y = x+1
+                while y in nums:
+                    y += 1
+                res = max(res, y-x)
+        return res
+        
     ## 方法二： 字典
     def longestConsecutive(self, nums: List[int]) -> int:
         lookup = {}
