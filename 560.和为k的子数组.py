@@ -6,7 +6,8 @@
 
 # @lc code=start
 class Solution:
-    ## 错误版本
+    ## 比如：[1,2,3]；子数组：[1,2],[3].不能包含[2.1]即不能重复。
+    ## 最开始做的时候 d[s] = d.get(s-k,0)+1 就包含重复计算。
     def subarraySum(self, nums: List[int], k: int) -> int:        
         d = {0:1} ## key: 元素, value: 次数
         count = 0

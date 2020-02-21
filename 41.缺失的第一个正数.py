@@ -23,7 +23,6 @@ class Solution:
         for i in range(size):
             if i + 1 != nums[i]:
                 return i + 1
-
         return size + 1
 
     def __swap(self, nums, index1, index2):

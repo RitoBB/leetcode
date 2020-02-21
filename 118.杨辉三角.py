@@ -7,6 +7,16 @@
 # @lc code=start
 class Solution:
     ## 简洁版
+    def generate(self, numRows: int) -> List[List[int]]:
+        res = []
+    tmp = []
+    ## 用tmp代表上一层的数组，每次循环在数组前插入1.并开始原地修改。
+    for _ in range(numRows):
+        tmp.insert(0, 1) 
+        for i in range(1, len(tmp) - 1): 
+            tmp[i] = tmp[i] + tmp[i+1]
+        res.append(tmp[:])
+    return res
 
     ## 第一版
     def generate(self, numRows: int) -> List[List[int]]:

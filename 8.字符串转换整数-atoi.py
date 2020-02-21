@@ -17,6 +17,6 @@ class Solution:
         except:
              return 0
         else:
-            return max(min(result, 2**31-1),-2**31)
+            return max(min(result, 2**31-1),-2**31) ## 判断溢出
 # @lc code=end
 

@@ -40,9 +40,6 @@ class Solution:
                 else:
                     mark[cur_r][cur_c] = 0
         return False
-   
-
-
         
 # @lc code=end
 
