@@ -22,6 +22,7 @@ class Solution:
                 continue
             ##固定第二个指针 ：j
             for j in range(i+1,l-2):
+                ## 去重，减枝。j-i >1说明 j与i不重复。
                 if j-i >1 and nums[j] == nums[j-1]:
                     continue
                 if nums[i]+nums[j] +sum(nums[j+1:j+1+2]) > target:
