@@ -5,37 +5,23 @@
 #
 
 # @lc code=start
+from functools import lru_cache
 class Solution:
+    @lru_cache(1800)
     def isMatch(self, s: str, p: str) -> bool:
-        s_len, p_len = len(s), len(p)
-        s_idx = p_idx = 0
-        star_idx = s_tmp_idx = -1
+        lenS = len(s)
+        lenP = len(p)
+        if '?' not in p and '*' not in p:
+            return lenS == lenP and s == p
+        if lenS == 0:
+            return self.isMatch(s,p[1:]) if p[0] == '*' else False
+        if p[0] == '?':
+            return self.isMatch(s[1:],p[1:])
+        if p[0] == '*':
+            return self.isMatch(s,p[1:]) or self.isMatch(s[1:],p)
+        return self.isMatch(s[1:],p[1:]) if s[0] == p[0] else False
 
-        while s_idx < s_len:
-            ## 1. 当 pattern的字符 = string的字符
-            ##     或者 pattern的字符 = ‘？’
-            if p_idx < p_len and p[p_idx] in ['?',s[s_idx]]:
-                s_idx += 1
-                p_idx += 1
-            ## 2. 当 pattern的字符 = ‘*’时：
-            elif p_idx < p_len and p[p_idx] == '*':
-                star_idx = p_idx
-                s_tmp_idx = s_idx
-                p_idx += 1
-            ## 3. 当pattern没有‘*’ 或者 pattern的字符！= string的字符
-            elif star_idx == -1:
-                return False
-            ##4. 当pattern的字符 ！= string的字符 
-            ##      或者pattern用完了 并且 pattern曾经有*字符
-            else:
-                ## 回溯, 当*匹配了一个或多个字符
-                p_idx = star_idx +1
-                s_idx = s_tmp_idx + 1
-                s_tmp_idx = s_idx
-            
-        return all(x=='*' for x in p[p_idx:])
-
-
-
+    
         # @lc code=end
+
 
