@@ -10,6 +10,7 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+
         # 把所有没填数字的位置找到
         all_points = []
         for i in range(9):
@@ -28,11 +29,11 @@ class Solution:
                 if i != col_j and board[row_i][i] == k:
                     return False
             # 检查块
+            ## 注意块循环的写法
             for i in range(row_i//3*3 , row_i//3*3+3):
                 for j in range(col_j//3*3, col_j//3*3+3):
                     if i != row_i and j != col_j and board[i][j] == k:
                         return False
-            
             return True
         
         def backtrack(i):

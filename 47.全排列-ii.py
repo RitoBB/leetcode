@@ -28,7 +28,7 @@ class Solution:
             self.backtrack(sol+[nums[i]], nums, check)
             check[i] = 0
 
-"""
+    ## 方法二：
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         result = []
@@ -42,7 +42,7 @@ class Solution:
                     backtrack(nums[:i] + nums[i+1:] , tmp + [nums[i]])
         backtrack(nums , [])
         return result
-"""        
+        
         
         
 # @lc code=end
