@@ -21,7 +21,7 @@ class Solution:
             return self.isMatch(s,p[1:]) or self.isMatch(s[1:],p)
         return self.isMatch(s[1:],p[1:]) if s[0] == p[0] else False
 
-    
+        
         # @lc code=end
 
 
