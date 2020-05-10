@@ -12,6 +12,7 @@ class Solution:
         majorityT = -1 # 候选人2
         countO = 0 # 候选人1 票数
         countT = 0 # 候选人2 票数
+        
         for num in nums:
             if countO == 0 and num != majorityT:
                 majorityO = num
@@ -31,7 +32,7 @@ class Solution:
                     countT -= 1
         counterO = 0
         counterT = 0
-            
+        ## 计数   
         if countO > 0:
             for num in nums:
                 if num == majorityO:
