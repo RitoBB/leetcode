@@ -9,12 +9,13 @@ class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         res = []
-        def backtrack(num, index):
-            if num not in res:
-                res.append(num)
-            for i in range(index, len(nums)):
-                backtrack(num+[nums[i]], i+1)
-        backtrack([],0)
+        n = len(nums)
+        def backTrack(idx, tmp):
+            if tmp not in res:
+                res.append(tmp)
+            for i in range(idx, n):
+                backTrack(i+1,tmp + [nums[i]])
+        backTrack(0, [])
         return res
 
         
